@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { readItems } from '../api/readItems'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
     const [items, setItems] = useState([])
@@ -13,12 +14,16 @@ const Home = () => {
         fetchItems()
     }, [])
 
-    if(!items) return <h1>loading...</h1>
+    if (!items) return <h1>loading...</h1>
     return (
         <div>
             <h1>home</h1>
             {items.map((item, index) => {
-                return <p key={item._id}>{item.text}</p>
+                return (
+                    <Link to={`/${item._id}`}>
+                        <p key={item._id}>{item.text}</p>
+                    </Link>
+                )
             })}
         </div>
     )
