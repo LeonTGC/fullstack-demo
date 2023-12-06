@@ -22,10 +22,18 @@ const deleteTodo = async (req, res) => {
     res.status(200).json(todo)
 }
 
+const getTodo = async (req, res) => {
+    const { id } = req.params
+
+    const todo = await Todo.findById(id)
+    res.status(200).json(todo)
+}
+
 module.exports = {
     createTodo,
     getTodos,
-    deleteTodo
+    deleteTodo,
+    getTodo
 }
 
 

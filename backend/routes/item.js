@@ -13,5 +13,7 @@ router.get('/items', itemControllers.getTodos)
 // DELETE
 // http://localhost:4000/todos/item/8484756373838754637
 router.delete('/item/:id', itemControllers.deleteTodo)
+// GET unique item with the id
+router.get('/item/:id', itemControllers.getTodo)
 
 module.exports = router
